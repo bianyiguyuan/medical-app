@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: medapp-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: medapp
+      MYSQL_USER: medapp
+      MYSQL_PASSWORD: medapp123
+    ports:
+      - "3306:3306"
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    volumes:
+      - db_data:/var/lib/mysql
+
+  redis:
+    image: redis:7
+    container_name: medapp-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+volumes:
+  db_data:
