@@ -22,6 +22,7 @@ class Doctor(db.Model, TimestampMixin):
     clinic_location = db.Column(db.String(128))
 
 class Schedule(db.Model, TimestampMixin):
+    
     __tablename__ = 'schedules'
     id = db.Column(db.Integer, primary_key=True)
     doctor_id = db.Column(db.Integer, db.ForeignKey('doctors.id'), nullable=False)

@@ -9,7 +9,7 @@ flask --app backend.app:create_app db init
 flask --app backend.app:create_app db migrate -m "init"
 flask --app backend.app:create_app db upgrade
 python -m backend.app
-
+```
 ## 文件结构
 medical-app/
 ├─ docker-compose.yml
